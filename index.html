@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Munir Islamic Primary School</title>
+<style>
+  /* Reset and base styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #e0f7fa;
+    color: #333;
+    scroll-behavior: smooth;
+  }
+
+  /* Header styles */
+header {
+      background: linear-gradient(rgba(0,105,92,0.75), rgba(0,105,92,0.75)),
+              url("12.png") center/cover no-repeat;
+  
+  padding: 4% 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: #aed581 20px;
+  border-bottom-style: outset;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+.header-tagline {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Hamburger menu styles */
+.menu-toggle {
+  display: none; /* Hidden on larger screens */
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.menu-toggle .bar {
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+/* Show hamburger on small screens */
+@media(max-width: 768px){
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* Header title */
+header h1 {
+  font-size: 2.2em;
+  margin-bottom: 5px;
+}
+
+/* Navigation styles */
+nav {
+  margin-top: 20px;
+}
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.menu li {
+  position: relative;
+}
+@media(max-width: 768px){
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    display: none; /* Hidden by default in mobile, toggled by JS */
+  }
+  .menu.show {
+    display: flex;
+  }
+}
+.menu a {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.menu a:hover {
+  background-color: #004d40;
+  border-radius: 4px;
+}
+
+/* Sections styles */
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+  background-color: #ffffffcc; /* semi-transparent white */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+section h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #00695c;
+  border-bottom: 2px solid #aed581;
+  padding-bottom: 10px;
+}
+section h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #00796b;
+}
+p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+/* Slideshow container styles */
+#activitySlideshow {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease-in-out;
+}
+.slide.active {
+  display: block;
+  position: relative;
+}
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+.caption {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 10px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+/* Footer styles */
+footer {
+  background-color: #00695c;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+/* Responsive font size adjustments */
+@media(max-width: 480px){
+  header h1 {
+    font-size: 1.8em;
+  }
+  section {
+    padding: 20px 10px;
+  }
+  footer {
+    font-size: 0.9em;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Munir Islamic Primary School</h1>
+  <div class="header-tagline">Nurturing Minds, Building Faith</div>
+  <!-- Hamburger Menu Icon for mobile -->
+  <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" role="button" tabindex="0">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <nav>
+    <ul class="menu" id="mainMenu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#curriculum">Curriculum</a></li>
+      <li><a href="#activities">Activities</a></li>
+      <li><a href="#admissions">Admissions</a></li>
+      <li><a href="#facilities">Facilities</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container" id="home">
+
+  <!-- About Us -->
+  <section id="about">
+    <h2>About Munir Islamic Primary School</h2>
+    <p>Munir Islamic Primary School is dedicated to providing quality Islamic education rooted in Islamic values, combined with modern foundational skills. Our goal is to nurture well-rounded students who excel academically and morally in a caring environment.</p>
+    <img src="12.png" alt="School Campus" />
+  </section>
+
+  <!-- Curriculum -->
+  <section id="curriculum">
+    <h2>Our Curriculum</h2>
+    <p>We offer a comprehensive curriculum that integrates Islamic studies with core subjects such as Mathematics, Science, Languages, and Social Studies. Emphasis is placed on moral development, character building, and community service.</p>
+    <h3>Core Subjects:</h3>
+    <ul>
+      <li>Quran and Islamic Studies</li>
+      <li>Arabic Language</li>
+      <li>English Language</li>
+      <li>Mathematics</li>
+      <li>Science</li>
+      <li>Social Studies</li>
+    </ul>
+  </section>
+
+  <!-- Activities Slideshow -->
+  <section id="activities">
+    <h2>School Activities & Events</h2>
+    <div id="activitySlideshow">
+      <div class="slide active">
+        <img src="https://images.unsplash.com/photo-1612347363439-7f2f4c2a3e4f?ixlib=rb-4.0.4&auto=format&fit=crop&w=1000&q=80" alt="Students praying" />
+        <div class="caption">Students praying during Islamic studies</div>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1605655814381-9c0ed4c6f4b4?ixlib=rb-4.0.4&auto=format&fit=crop&w=1000&q=80" alt="School sports day" />
+        <div class="caption">Annual Sports Day Celebrations</div>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1607020038550-768b69f2295e?ixlib=rb-4.0.4&auto=format&fit=crop&w=1000&q=80" alt="Students reading" />
+        <div class="caption">Students engaging in reading activities</div>
+      </div>
+      <div class="slide">
+        <img src="https://images.unsplash.com/photo-1612366482368-3f5b7a0f7d5f?ixlib=rb-4.0.4&auto=format&fit=crop&w=1000&q=80" alt="School event" />
+        <div class="caption">Cultural and Religious Event</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admissions -->
+  <section id="admissions">
+    <h2>Admissions</h2>
+    <p>We welcome applications for new students. Admission is open for children aged 4-12. Please prepare the necessary documents and visit our office or apply online.</p>
+    <ul>
+      <li>Application deadline: Ongoing</li>
+      <li>Requirements: Birth certificate, previous school reports, parent ID</li>
+    </ul>
+    <a href="#apply" style="display:inline-block; padding:10px 20px; background-color:#00695c; color:#fff; border-radius:5px; text-decoration:none;">Apply Now</a>
+  </section>
+
+  <!-- Facilities -->
+  <section id="facilities">
+    <h2>Facilities & Resources</h2>
+    <p>Our school features spacious classrooms, a library, playground, Islamic prayer area, and computer labs to enhance the learning experience.</p>
+    <img src="https://images.unsplash.com/photo-1599694537608-d2fbdcc8b591?ixlib=rb-4.0.4&auto=format&fit=crop&w=1000&q=80" alt="School Facilities" />
+  </section>
+
+  <!-- Contact Us -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Address: Munir Islamic Primary School, Main Street, City, Country</p>
+    <p>Phone: +123 456 7890</p>
+    <p>Email: info@munirislamicprimary.org</p>
+    <p>Follow us on:</p>
+    <ul>
+      <li>Facebook: Munir Islamic Primary School</li>
+      <li>Twitter: @MunirIslamic</li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Munir Islamic Primary School. All rights reserved.</p>
+</footer>
+
+<!-- Scripts for Menu toggle and slideshow -->
+<script>
+  // Menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mainMenu');
+
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+    const expanded = menu.classList.contains('show');
+    menuToggle.setAttribute('aria-expanded', expanded);
+  });
+  document.addEventListener('click', (event) => {
+    if (!menu.contains(event.target) && !menuToggle.contains(event.target) && window.innerWidth <= 768) {
+      menu.classList.remove('show');
+      menuToggle.setAttribute('aria-expanded', false);
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      menu.classList.remove('show');
+      menu.style.display = 'flex';
+    } else {
+      menu.style.display = 'none';
+    }
+  });
+  if (window.innerWidth <= 768) {
+    menu.style.display = 'none';
+  }
+
+  // Slideshow logic
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Change slide every 5 minutes (300000 ms)
+  setInterval(nextSlide, 300000); // 300,000 ms = 5 minutes
+
+  // Initialize
+  showSlide(currentSlide);
+</script>
+
+</body>
+</html>
